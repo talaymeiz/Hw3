@@ -65,12 +65,15 @@ int functionB(char w[], char str[]){
 
     
 
-    printf(" \n");
-    printf("Atbash Sequences: ");
+    // printf(" \n");
+    // printf("\nAtbash Sequences: ");
 
     int flagfort=0;
 
+    // char s[strlen(w)];
+
     char s[strlen(w)];
+    s[strlen(w)]='\0';
 
     for (int i=0; i<strlen(w); i++){
 

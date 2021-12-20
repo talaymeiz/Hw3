@@ -42,7 +42,7 @@ int main(){
 
     printf("Gematria Sequences: ");
     functionA(word,text);
-   //  printf("Atbash Sequences: ");
+    printf("\nAtbash Sequences: ");
     functionB(word,text);
     printf("\nAnagram Sequences: ");
     functionC(word,text);
