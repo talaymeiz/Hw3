@@ -7,14 +7,14 @@ HEADER = head.h
 MAIN = main.o
 
 
-all: main_ran
+all: stringProg
 
 functions.o: function.c $(HEADER)
 	$(CC) $(FLAGS) -c function.c
 
 #creat main
-main_ran: $(MAIN) function.o
-	$(CC) $(FLAGS) -o main_ran $(MAIN) function.o $(LM)
+stringProg: $(MAIN) function.o
+	$(CC) $(FLAGS) -o stringProg $(MAIN) function.o $(LM)
 
 
 main.o: main.c $(HEADER)
@@ -23,4 +23,4 @@ main.o: main.c $(HEADER)
 .PHONY: clean all
 
 clean:
-	rm -f *.o *.a main_ran
+	rm -f *.o *.a stringProg

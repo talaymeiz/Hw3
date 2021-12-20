@@ -74,80 +74,152 @@ int gim(char w[], int* pg){
 
 int functionB(char w[], char str[]){
     
-    int ff=0;
-    char s[strlen(w)];                 //s= the word in azby
+    // printf("in B\n");
+    int flagfort=0;
+    char s[strlen(w)];
     for (int i=0; i<strlen(w); i++){
         char c= w[i];
         azby(&c);
         s[i]= c;
     }
-    // printf("the string: %s\n", w);
-    // printf("the new string: %s\n", s);
     for (int i=0; i<strlen(str); i++){
-        // printf("index:%d , char:%c , s[0]:%c , result:%d\n",i,str[i],s[0],result);
-        char c1= str[i];
-        char c2= s[0];
-        // printf("index:%d , c1:%c , c2:%c \n",i,c1,c2);
-        if(c1==c2){
-            // printf("is in s[0]\n");
+        char stri= str[i];
+        char s0= s[0];
+        if(stri==s0){
+            int indexs=1;
+            int j=i;
             int flag=0;
-            int index=0;
-            int j;
-            for (j=i; j<strlen(str) && index<strlen(s); j++){  
-                char c3= str[j];
-                char c4= s[index];
-                if(c3==c4){  /// defrent
-                    index++;
-                }
-                else if(c3==32 || c3==9 || c3==10){//text[j]!=32 && text[j]!=9 && text[j]!=10
-                }
+            for (j=i+1; j<strlen(str) && indexs<strlen(s) && flag==0; j++){  
+                char strj= str[j];
+                char sind= s[indexs]; 
+                if(strj==sind){
+                    indexs++;
+                } 
+                else if(strj==32 || strj==9 || strj==10){
+                } 
                 else{
                     flag++;
-                }
+                }        
             }
-            // printf("index:%d\n", index);
-            // printf("flag:%d\n", flag);
-            if (flag==0 && index>strlen(s)-2){// && index==strlen(s)-1
-                if (ff>0){
+            if (flag==0 && j-i+1>=strlen(s)){ //&& j-i+1==strlen(s)
+                // printf("strlen(s):%ld, i:%d, j:%d\n", strlen(s),i,j);
+                if (flagfort>0){
                     printf("~");
                 }
-                ff++;            
+                flagfort++;            
                 for (int k=i ; k<=j-1 ; k++){
                     printf("%c" , str[k]);
                 }
             }
         }
-
-        char c5= s[strlen(s)-1];
+        char se= s[strlen(s)-1];
+        if(stri==se){
+            int indexs=1;
+            int j=i;
             int flag=0;
-            int index=0;
-            int j;
-            for (j=i; j<strlen(str) && index<strlen(s); j++){  
-                char c3= str[j];
-                char c4= s[strlen(s)-index-1];
-                if(c3==c4){  
-                    index++;
-                }
-                else if(c3==32 || c3==9 || c3==10){//text[j]!=32 && text[j]!=9 && text[j]!=10
-                }
+            for (j=i+1; j<strlen(str) && indexs<strlen(s) && flag==0; j++){  
+                char strj= str[j];
+                char sind= s[strlen(s)-indexs-1]; 
+                if(strj==sind){
+                    indexs++;
+                } 
+                else if(strj==32 || strj==9 || strj==10){
+                } 
                 else{
                     flag++;
-                }
+                }        
             }
-            if (flag==0 && index>strlen(s)-2){
-                if (ff>0){
+            if (flag==0 && j-i+1>=strlen(s)){
+                if (flagfort>0){
                     printf("~");
                 }
-                ff++;
+                flagfort++;            
                 for (int k=i ; k<=j-1 ; k++){
                     printf("%c" , str[k]);
                 }
             }
         }
-    
+    }
     return 0;
 }
 
+// int functionB(char w[], char str[]){
+    
+//     // printf("\nAtbash Sequences: ");
+//     int ff=0;
+//     char s[strlen(w)];                 //s= the word in azby
+//     for (int i=0; i<strlen(w); i++){
+//         char c= w[i];
+//         azby(&c);
+//         s[i]= c;
+//     }
+//     // printf("the string: %s\n", w);
+//     // printf("the new string: %s\n", s);
+//     for (int i=0; i<strlen(str); i++){
+//         // printf("index:%d , char:%c , s[0]:%c , result:%d\n",i,str[i],s[0],result);
+//         char c1= str[i];
+//         char c2= s[0];
+//         // printf("index:%d , c1:%c , c2:%c \n",i,c1,c2);
+//         if(c1==c2){
+//             // printf("is in s[0]\n");
+//             int flag=0;
+//             int index=0;
+//             int j;
+//             for (j=i; j<strlen(str) && index<strlen(s); j++){  
+//                 char c3= str[j];
+//                 char c4= s[index];
+//                 if(c3==c4){  /// defrent
+//                     index++;
+//                 }
+//                 else if(c3==32 || c3==9 || c3==10){//text[j]!=32 && text[j]!=9 && text[j]!=10
+//                 }
+//                 else{
+//                     flag++;
+//                 }
+//             }
+//             // printf("index:%d\n", index);
+//             // printf("flag:%d\n", flag);
+//             if (flag==0 && index>strlen(s)-2){// && index==strlen(s)-1
+//                 if (ff>0){
+//                     printf("~");
+//                 }
+//                 ff++;            
+//                 for (int k=i ; k<=j-1 ; k++){
+//                     printf("%c" , str[k]);
+//                 }
+//             }
+//         }
+
+//         char c5= s[strlen(s)-1];
+//             int flag=0;
+//             int index=0;
+//             int j;
+//             for (j=i; j<strlen(str) && index<strlen(s); j++){  
+//                 char c3= str[j];
+//                 char c4= s[strlen(s)-index-1];
+//                 if(c3==c4){  
+//                     index++;
+//                 }
+//                 else if(c3==32 || c3==9 || c3==10){//text[j]!=32 && text[j]!=9 && text[j]!=10
+//                 }
+//                 else{
+//                     flag++;
+//                 }
+//             }
+//             if (flag==0 && index>strlen(s)-2){
+//                 if (ff>0){
+//                     printf("~");
+//                 }
+//                 ff++;
+//                 for (int k=i ; k<=j-1 ; k++){
+//                     printf("%c" , str[k]);
+//                 }
+//             }
+//         }
+//     // 
+//     return 0;
+// }
+ 
  
 int azby(char* pa){
 
