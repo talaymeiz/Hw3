@@ -37,14 +37,14 @@ int main(){
     word[strlen(word)-1]= '\0';
     text[strlen(text)-1]= '\0';
 
-    printf("the word: %s\n", word);
-    printf("the text: %s\n", text);
+   //  printf("the word: %s\n", word);
+   //  printf("the text: %s\n", text);
 
-    // printf("Gematria Sequences: ");
-    // functionA(word,text);
-    // printf("\nAtbash Sequences: ");
-    // functionB(word,text);
-    // printf("\nAnagram Sequences: ");
+    printf("Gematria Sequences: ");
+    functionA(word,text);
+    printf("\nAtbash Sequences: ");
+    functionB(word,text);
+    printf("\nAnagram Sequences: ");
     functionC(word,text);
     // printf("\nend\n");
 

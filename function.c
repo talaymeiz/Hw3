@@ -10,6 +10,7 @@
 int functionA(char w[], char str[]){
 // 
     // printf("in functionA\n");
+    int ff= 0;
     int gnum=0;
     gim(w, &gnum);
     // printf("gim= %d\n", gnum);
@@ -32,10 +33,14 @@ int functionA(char w[], char str[]){
                 // printf("nstr: %d\n", nstr);
                 if (nstr==gnum){
                     // printf("index i:%d, index j:%d\n",i,j);
+                    if (ff>0){
+                        printf("~");
+                    }
+                    ff++;
                     for (int k=i ; k<=j ; k++){
                         printf("%c" , str[k]);
                     }
-                    printf("~");
+                    
                 }
                 if (nstr>=gnum){
                     j=strlen(str);
@@ -69,6 +74,7 @@ int gim(char w[], int* pg){
 
 int functionB(char w[], char str[]){
     
+    int ff=0;
     char s[strlen(w)];                 //s= the word in azby
     for (int i=0; i<strlen(w); i++){
         char c= w[i];
@@ -102,11 +108,13 @@ int functionB(char w[], char str[]){
             // printf("index:%d\n", index);
             // printf("flag:%d\n", flag);
             if (flag==0 && index>strlen(s)-2){// && index==strlen(s)-1
+                if (ff>0){
+                    printf("~");
+                }
+                ff++;            
                 for (int k=i ; k<=j-1 ; k++){
                     printf("%c" , str[k]);
                 }
-                printf("~");
-                // printf("%s\n",str.Substring(i, j));
             }
         }
 
@@ -127,10 +135,13 @@ int functionB(char w[], char str[]){
                 }
             }
             if (flag==0 && index>strlen(s)-2){
+                if (ff>0){
+                    printf("~");
+                }
+                ff++;
                 for (int k=i ; k<=j-1 ; k++){
                     printf("%c" , str[k]);
                 }
-                printf("~");
             }
         }
     
@@ -164,7 +175,7 @@ int azby(char* pa){
 
 int functionC(char w[], char str[]){
 
-
+    int ff=0;
     for (int i=0; i<strlen(str); i++){ //run on char in str
         int flag1= mystrchr(w, str[i]);                    // if str[i] in w
         char leters[strlen(w)]; //the leters in w
@@ -189,10 +200,13 @@ int functionC(char w[], char str[]){
                 }
             }
             if(num==strlen(w)){
+                if (ff>0){
+                    printf("~");
+                }
+                ff++;
                 for (int k=i ; k<=j-1 ; k++){
                     printf("%c" , str[k]);
                 }
-                printf("~");
             }
         }
     }
